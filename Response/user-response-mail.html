@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>DeeTech | Email</title>
+
+        <!-- Fontawesome -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+            integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+
+        
+
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+
+    display: grid;
+    place-items: center;
+}
+
+.email {
+    /* border: 2px solid #0A183D; */
+    font-size: .875rem;
+    line-height: 1.5;
+    max-width: 600px;
+    padding: 2em;
+    width: 90%;
+}
+
+.email__article {
+    color: #0A183D;
+}
+
+.email__heading {
+    font-size: 1.5rem;
+    margin: 1.5em 0;
+}
+
+.email__p {
+    margin: 1.5em 0;
+}
+
+.email__address {
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 1.5em;
+    opacity: .7;
+    text-align: center;
+}
+.insight__link-btn {
+    background: var(--red-secondary);
+    border-radius: .5em;
+    color: var(--white);
+    margin: 4em auto;
+    padding: .75em 1.25em;
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+      </style>
+    </head>
+    <body>
+        <main>
+            <section class="email">
+                <article class="email__article">
+                    <header>
+                        <a href='https://postimg.cc/PCWnvn79' target='_blank'><img src='https://i.postimg.cc/PCWnvn79/Capture.png' alt='Capture'/></a>
+                        <h1 class="email__heading">Hello {{firstname}} {{lastname}},</h1>
+                    </header>
+                    <p class="email__p">Thank you for getting in touch!</p>
+                    <p class="email__p">I really appreciate you contacting me. 
+                        Grab a cup of coffee as i promise to get back to 
+                                        you shortly.</p>
+                    <p class="email__p">while i do my best to answer quickly. it may take about 24 hours
+                                        to recieve a response from me during peak hours.</p>
+                    <p class="email__p">Thanks in advance for your patience.
+                    </p>
+                    <p class="email__p">Have a great day!</p>
+                    
+                    
+
+                    
+                <!-- <address class="email__address">
+                    Our postal address:<br />
+                    24b Tijani Amodu Close, Off Sanusi Fafunwa, Victoria Island Lagos.
+                </address> -->
+            </section>
+        </main>
+    </body>
+</html>
