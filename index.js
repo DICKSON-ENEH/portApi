@@ -6,7 +6,7 @@ const cors= require("cors")
 const morgan = require("morgan")
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb://localhost/portfolio").then(()=>{
+mongoose.connect("mongodb+srv://oja:today@cluster0.xd5wm.mongodb.net/portfolio?").then(()=>{
     console.log("connected")
 }).catch((err)=>{
     console.log(err)

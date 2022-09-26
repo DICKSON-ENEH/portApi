@@ -1,4 +1,5 @@
 const express = require("express")
+require("dotenv").config()
 const router = express.Router()
 const {google} = require("googleapis")
 const nodemailer = require("nodemailer")
@@ -9,15 +10,15 @@ const compileTemplate = hogan.compile(userTemplate)
 const OAuth2 = google.auth.OAuth2
 const contactTemplate =fs.readFileSync("./Response/Contactus.html", "utf-8")
 const compileContact = hogan.compile(contactTemplate)
-const CLIENT_SCRET = "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"
+const CLIENT_SCRET = process.env.CLIENTSECRET
 const postModel = require("../model/model")
 
 const upload = require("./multer") 
 const  cloudinary = require("../cloudinary")
 
-const CLIENT_ID = "1038789164916-qlk62c5r2fkosr6hcans5np1q9sadr0a.apps.googleusercontent.com"
+const CLIENT_ID = process.env.CLIENTID
 
-const refrehToken ="1//04gBGzLsaoAXCCgYIARAAGAQSNwF-L9IreLvgQZyAjKsjayW-rfD6GoDQYnKK6-nRHsThnN2CZk9xVN1ux3K6p7AQUW0j7tMmeww"
+const refrehToken =process.env.REFRESHTOKEN
 
 const OAuth2_client = new OAuth2(
     CLIENT_ID, CLIENT_SCRET
