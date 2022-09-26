@@ -6,11 +6,11 @@ const cors= require("cors")
 const morgan = require("morgan")
 const mongoose = require("mongoose")
 
-mongoose.connect("mongodb+srv://oja:today@cluster0.xd5wm.mongodb.net/portfolio?").then(()=>{
+mongoose.connect(process.env.MONGO).then(()=>{
     console.log("connected")
 }).catch((err)=>{
     console.log(err)
-})
+}) 
 
 app.use(express.json())
 app.use(cors())

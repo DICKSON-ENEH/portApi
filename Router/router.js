@@ -18,17 +18,20 @@ const  cloudinary = require("../cloudinary")
 
 const CLIENT_ID = process.env.CLIENTID
 
-const refrehToken =process.env.REFRESHTOKEN
+const refrehToken = process.env.REFRESHTOKEN
+const REDIRECT_URL=
+"https://developers.google.com/oauthplayground"
 
 const OAuth2_client = new OAuth2(
-    CLIENT_ID, CLIENT_SCRET
+    CLIENT_ID, CLIENT_SCRET,
+    REDIRECT_URL
 )
 
 OAuth2_client.setCredentials({
     refresh_token:refrehToken
 })
 
-
+ 
 router.post("/sendmail", async(req, res)=>{
     try {
       
