@@ -5,6 +5,7 @@ const {google} = require("googleapis")
 const nodemailer = require("nodemailer")
 const hogan = require("hogan.js")
 const fs =require("fs")
+const userModel = require("../model/sign")
 const userTemplate = fs.readFileSync("./Response/user-response-mail.html", "utf-8")
 const compileTemplate = hogan.compile(userTemplate)
 const OAuth2 = google.auth.OAuth2
@@ -17,7 +18,8 @@ const upload = require("./multer")
 const  cloudinary = require("../cloudinary")
 
 const CLIENT_ID = process.env.CLIENTID
-
+const jwt = require("jsonwebtoken")
+const bcrypt = require("bcrypt")
 const refrehToken = process.env.REFRESHTOKEN
 const REDIRECT_URL=
 "https://developers.google.com/oauthplayground"
@@ -110,7 +112,33 @@ link, project, description,image:req.file.path, role,tools, imageid:cloudy.publi
     console.log(error)
   }
 })
+router.post("/signin", async(req, res)=>{
+  try {
+    const {fullname, password} = req.body
+    const salt = await bcrypt.genSalt(10)
+    const hashed = await bcrypt.hash(password, salt)
 
+    const user = await userModel.create({
+      fullname, password:hashed
+    })
+    if(user){
+      const token = jwt.sign({
+        _id:user._id
+      }, "stockdata", {expiresIn:"20d"})
+
+      const {password ,  ...info }= user._doc
+
+      res.status(200).json({
+        message:"user",
+        data:{
+          token, ...info
+        }
+      })
+    }
+  } catch (error) {
+    console.log(error)
+  }
+})
 router.get("/viewProjects", async(req, res)=>{
   try {
     const post = await postModel.find()
